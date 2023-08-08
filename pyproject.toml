@@ -11,12 +11,10 @@ python = "^3.11"
 
 
 [tool.poetry.group.dev.dependencies]
-pytest = "^7.2.0"
-black = "^22.12.0"
-mypy = "^0.991"
-isort = "^5.11.4"
-pyproject-flake8 = "^6.0.0"
-flake8-bugbear = "^22.12.6"
+black = "^23.7.0"
+ruff = "^0.0.282"
+mypy = "^1.4.1"
+pytest = "^7.4.0"
 
 
 [tool.poetry.scripts]
@@ -30,25 +28,14 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.black]
 target-version = ["py311"]
-line-length = 88
+line-length = 120
 
 
-[tool.isort]
-profile = "black"
-line_length = 88
-multi_line_output = 3
-include_trailing_comma = true
-known_local_folder = ["config",]
-
-
-[tool.flake8]
-max-line-length = 88
-max-complexity = 10
-count = true
-ignore = "E203,E266,W503,"
-per-file-ignores = [
-    "__init__.py:F401",
-]
+[tool.ruff]
+select = ["ALL"]
+ignore = ["T201", "D203", "D212", "ERA001", "D1", "ANN"]
+unfixable = ["F401", "F841"]
+line-length = 120
 
 
 [tool.mypy]
@@ -68,5 +55,5 @@ strict_equality = true
 
 
 [tool.pytest.ini_options]
-testpaths = ["tests",]
+testpaths = ["tests"]
 # filterwarnings = ["ignore::DeprecationWarning",]
