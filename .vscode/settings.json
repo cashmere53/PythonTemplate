@@ -7,4 +7,6 @@
         },
         "editor.defaultFormatter": "ms-python.black-formatter",
     },
+    "black-formatter.importStrategy": "fromEnvironment",
+    "black-formatter.path": ["${workspaceFolder}/.venv/Scripts/black"],
 }
