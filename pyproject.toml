@@ -11,12 +11,13 @@ python = "^3.12"
 
 
 [tool.poetry.group.dev.dependencies]
-black = "^23.10.1"
-ruff = "^0.1.4"
-mypy = "^1.6.1"
-pytest = "^7.4.3"
+black = "^24.1.1"
+ruff = "^0.2.0"
+mypy = "^1.8.0"
+pytest = "^8.0.0"
 pytest_cov = "^4.1.0"
-poethepoet = "^0.24.2"
+pytest-sugar = "^1.0.0"
+poethepoet = "^0.24.4"
 
 
 [tool.poetry.scripts]
@@ -29,7 +30,7 @@ build-backend = "poetry.core.masonry.api"
 
 
 [tool.black]
-target-version = ["py311"]
+target-version = ["py312"]
 line-length = 120
 
 
@@ -49,7 +50,7 @@ convention = "google"
 
 
 [tool.mypy]
-python_version = "3.11"
+python_version = "3.12"
 ignore_missing_imports = true
 strict = true
 # warn_unused_configs = true
