@@ -11,12 +11,14 @@ python = "^3.12"
 
 
 [tool.poetry.group.dev.dependencies]
-black = "^23.10.1"
-ruff = "^0.1.4"
-mypy = "^1.6.1"
-pytest = "^7.4.3"
-pytest_cov = "^4.1.0"
-poethepoet = "^0.24.2"
+black = "^24.3.0"
+ruff = "^0.3.5"
+mypy = "^1.9.0"
+pytest = "^8.1.1"
+pytest_cov = "^5.0.0"
+poethepoet = "^0.25.0"
+pytest-sugar = "^1.0.0"
+tox = "^4.14.2"
 
 
 [tool.poetry.scripts]
@@ -29,43 +31,32 @@ build-backend = "poetry.core.masonry.api"
 
 
 [tool.black]
-target-version = ["py311"]
+target-version = ["py312"]
 line-length = 120
 
 
 [tool.ruff]
-select = ["ALL"]
-ignore = ["T201", "D203", "D212", "ERA001", "D1", "ANN"]
-unfixable = ["F401", "F841"]
 line-length = 120
 
 
-[tool.ruff.pydocstyle]
+[tool.ruff.lint]
+select = ["ALL"]
+ignore = ["T201", "D203", "D212", "ERA001", "D1", "ANN", "COM812", "ISC001"]
+unfixable = ["F401", "F841"]
+
+
+[tool.ruff.lint.pydocstyle]
 convention = "google"
 
 
-[tool.ruff.per-file-ignores]
+[tool.ruff.lint.per-file-ignores]
 "tests/**/*.py" = ["S101"]
 
 
 [tool.mypy]
-python_version = "3.11"
+python_version = "3.12"
 ignore_missing_imports = true
 strict = true
-# warn_unused_configs = true
-# disallow_any_generics = true
-# disallow_subclassing_any = true
-# disallow_untyped_calls = true
-# disallow_untyped_defs = true
-# disallow_incomplete_defs = true
-# check_untyped_defs = true
-# disallow_untyped_decorators = true
-# warn_redundant_casts = true
-# warn_unused_ignores = true
-# warn_return_any = true
-# no_implicit_reexport = true
-# strict_equality = true
-# extra_checks = true
 
 
 [tool.pytest.ini_options]
@@ -107,3 +98,45 @@ fmt_ruff = "ruff format template"
 fmt_black = "black template"
 fmt = ["fmt_ruff", "fmt_black"]
 build = ["fmt", "lint", "test"]
+
+[tool.tox]
+legacy_tox_ini = """
+[tox]
+envlist = 
+    py310
+    py311
+    py312
+    format
+    type
+
+[testenv]
+deps =
+    .
+    pytest
+commands = pytest .
+
+[testenv:py310]
+basepython = python3.10
+
+[testenv:py311]
+basepython = python3.11
+
+[testenv:py312]
+basepython = python3.12
+
+[testenv:format]
+deps =
+    .
+    black
+commands = 
+    black --check .
+
+[testenv:type]
+deps =
+    .
+    mypy
+    ruff
+commands =
+    mypy -m slcat
+    ruff check ./slcat
+"""
