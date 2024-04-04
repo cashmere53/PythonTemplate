@@ -137,6 +137,6 @@ deps =
     mypy
     ruff
 commands =
-    mypy -m slcat
-    ruff check ./slcat
+    mypy -m template
+    ruff check ./template
 """
