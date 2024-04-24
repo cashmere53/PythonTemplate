@@ -5,75 +5,62 @@ description = ""
 authors = ["cashmere53 <15913755+cashmere53@users.noreply.github.com>"]
 readme = "README.md"
 
-
 [tool.poetry.dependencies]
 python = "^3.12"
 
-
 [tool.poetry.group.dev.dependencies]
-black = "^24.3.0"
-ruff = "^0.3.5"
+black = "^24.4.0"
+ruff = "^0.4.1"
 mypy = "^1.9.0"
 pytest = "^8.1.1"
 pytest_cov = "^5.0.0"
-poethepoet = "^0.25.0"
 pytest-sugar = "^1.0.0"
+poethepoet = "^0.25.1"
 tox = "^4.14.2"
-
 
 [tool.poetry.scripts]
 tmp = "template.__main__:main"
-
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
 
-
 [tool.black]
 target-version = ["py312"]
 line-length = 120
 
-
 [tool.ruff]
 line-length = 120
-
 
 [tool.ruff.lint]
 select = ["ALL"]
 ignore = ["T201", "D203", "D212", "ERA001", "D1", "ANN", "COM812", "ISC001"]
 unfixable = ["F401", "F841"]
 
-
 [tool.ruff.lint.pydocstyle]
 convention = "google"
-
 
 [tool.ruff.lint.per-file-ignores]
 "tests/**/*.py" = ["S101"]
 
-
 [tool.mypy]
 python_version = "3.12"
+plugins = ["pydantic.mypy"]
 ignore_missing_imports = true
 strict = true
-
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 # filterwarnings = ["ignore::DeprecationWarning",]
 
-
 [tool.coverage.xml]
 output = ".pytest_cache/coverage.xml"
-
 
 [tool.coverage.run]
 branch = true
 source = ["template", "tests"]
 omit = ["tests/fixtures/*"]
 data_file = ".pytest_cache/.coverage"
-
 
 [tool.coverage.report]
 exclude_lines = [
@@ -87,7 +74,6 @@ exclude_lines = [
     "if typing.TYPE_CHECKING:",
 ]
 
-
 [tool.poe.tasks]
 lint_ruff = "ruff check template"
 lint_mypy = "mypy template"
@@ -98,45 +84,3 @@ fmt_ruff = "ruff format template"
 fmt_black = "black template"
 fmt = ["fmt_ruff", "fmt_black"]
 build = ["fmt", "lint", "test"]
-
-[tool.tox]
-legacy_tox_ini = """
-[tox]
-envlist = 
-    py310
-    py311
-    py312
-    format
-    type
-
-[testenv]
-deps =
-    .
-    pytest
-commands = pytest .
-
-[testenv:py310]
-basepython = python3.10
-
-[testenv:py311]
-basepython = python3.11
-
-[testenv:py312]
-basepython = python3.12
-
-[testenv:format]
-deps =
-    .
-    black
-commands = 
-    black --check .
-
-[testenv:type]
-deps =
-    .
-    mypy
-    ruff
-commands =
-    mypy -m template
-    ruff check ./template
-"""
