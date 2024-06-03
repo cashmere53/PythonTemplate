@@ -9,14 +9,14 @@ readme = "README.md"
 python = "^3.12"
 
 [tool.poetry.group.dev.dependencies]
-black = "^24.4.0"
-ruff = "^0.4.1"
-mypy = "^1.9.0"
-pytest = "^8.1.1"
+black = "^24.4.2"
+ruff = "^0.4.7"
+mypy = "^1.10.0"
+pytest = "^8.2.1"
 pytest_cov = "^5.0.0"
 pytest-sugar = "^1.0.0"
-poethepoet = "^0.25.1"
-tox = "^4.14.2"
+poethepoet = "^0.26.1"
+tox = "^4.15.0"
 
 [tool.poetry.scripts]
 tmp = "template.__main__:main"
