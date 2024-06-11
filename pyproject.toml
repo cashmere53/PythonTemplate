@@ -10,13 +10,13 @@ python = "^3.12"
 
 [tool.poetry.group.dev.dependencies]
 black = "^24.4.2"
-ruff = "^0.4.7"
+ruff = "^0.4.8"
 mypy = "^1.10.0"
-pytest = "^8.2.1"
+pytest = "^8.2.2"
 pytest_cov = "^5.0.0"
 pytest-sugar = "^1.0.0"
 poethepoet = "^0.26.1"
-tox = "^4.15.0"
+tox = "^4.15.1"
 
 [tool.poetry.scripts]
 tmp = "template.__main__:main"
