@@ -6,17 +6,17 @@ authors = ["cashmere53 <15913755+cashmere53@users.noreply.github.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.12"
+python = "^3.13"
 
 [tool.poetry.group.dev.dependencies]
-black = "^24.8.0"
-ruff = "^0.6.2"
-mypy = "^1.11.1"
-pytest = "^8.3.2"
-pytest_cov = "^5.0.0"
+black = "^25.1.0"
+ruff = "^0.11.2"
+mypy = "^1.15.0"
+pytest = "^8.3.5"
+pytest_cov = "^6.0.0"
 pytest-sugar = "^1.0.0"
-poethepoet = "^0.27.0"
-tox = "^4.18.0"
+poethepoet = "^0.33.1"
+tox = "^4.24.2"
 
 [tool.poetry.scripts]
 tmp = "template.__main__:main"
