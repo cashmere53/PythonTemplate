@@ -1,10 +1,9 @@
-from pathlib import Path
-
 import tomllib as tl
+from pathlib import Path
 
 
 def test_version() -> None:
-    import template
+    import template  # noqa: PLC0415
 
     pyproject_file = Path("./pyproject.toml")
     with pyproject_file.open("rb") as fp:

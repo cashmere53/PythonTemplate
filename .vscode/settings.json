@@ -1,11 +1,12 @@
 {
+    "python.defaultInterpreterPath": "${workspaceFolder}/.venv/Scripts/python.exe",
     "[python]": {
         "editor.formatOnSave": true,
         "editor.codeActionsOnSave": {
             "source.organizeImports": "explicit",
             "source.fixAll": "explicit"
         },
-        "editor.defaultFormatter": "ms-python.black-formatter",
+        "editor.defaultFormatter": "ms-python.black-formatter"
     },
     "black-formatter.args": [],
     "black-formatter.importStrategy": "fromEnvironment",
@@ -23,6 +24,12 @@
     "ty.importStrategy": "fromEnvironment",
     "ty.interpreter": ["${workspaceFolder}/.venv/Scripts/python"],
     "ty.path": ["${workspaceFolder}/.venv/Scripts/ty"],
+    "python.testing.pytestEnabled": true,
+    "python.testing.unittestEnabled": false,
+    "python.testing.pytestArgs": [
+        "tests"
+    ],
+    "python.testing.pytestPath": "${workspaceFolder}/.venv/Scripts/pytest",
     "cSpell.customDictionaries": {
         "custom-dictionary-workspace": {
             "name": "custom-dictionary-workspace",
@@ -32,4 +39,18 @@
         }
     },
     "python.analysis.typeCheckingMode": "strict",
+    "files.exclude": {
+        "**/__pycache__": true,
+        "**/*.pyc": true,
+        "**/.pytest_cache": true,
+        "**/.mypy_cache": true,
+        "**/.ruff_cache": true,
+        "**/*.egg-info": true,
+        "**/.tox": true
+    },
+    "search.exclude": {
+        "**/.venv": true,
+        "**/__pycache__": true,
+        "**/.tox": true
+    }
 }
