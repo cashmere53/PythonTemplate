@@ -1,0 +1,9 @@
+# Custom Dictionary Words
+filterwarnings
+mypy
+poethepoet
+pydantic
+pydocstyle
+pytest
+repr
+testpaths
