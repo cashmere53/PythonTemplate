@@ -18,14 +18,15 @@ build-backend = "uv_build"
 
 [dependency-groups]
 dev = [
-    "black>=25.9.0",
+    "black>=25.11.0",
     "mypy>=1.18.2",
-    "pytest>=8.4.2",
+    "pytest>=9.0.1",
+    "pytest-cov>=7.0.0",
     "pytest-sugar>=1.1.1",
-    "ruff>=0.14.2",
-    "tox>=4.31.0",
+    "ruff>=0.14.4",
+    "tox>=4.32.0",
     "tox-uv>=1.29.0",
-    "ty>=0.0.1a24",
+    "ty>=0.0.1a26",
 ]
 
 [tool.black]
